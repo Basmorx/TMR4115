@@ -1,0 +1,34 @@
+{
+  "ships": {
+    "Handymax": {
+      "co2eq_kg_per_nm": 231.6,
+      "dwt_tonnes": 40799,
+      "avg_speed_kn": 10.5,
+      "YearCO2emission": 1
+    },
+    "Panamax": {
+      "co2eq_kg_per_nm": 260.14,
+      "dwt_tonnes": 52713,
+      "avg_speed_kn": 9.4,
+      "YearCO2emission": 1
+    },
+    "Kamsarmax": {
+      "co2eq_kg_per_nm": 305.86,
+      "dwt_tonnes": 63073,
+      "avg_speed_kn": 11.1,
+      "YearCO2emission": 1
+    },
+    "Capesize": {
+      "co2eq_kg_per_nm": 1083.86,
+      "dwt_tonnes": 220766,
+      "avg_speed_kn": 15.8,
+      "YearCO2emission": 1
+    },
+    "VLOC": {
+      "co2eq_kg_per_nm": 815,
+      "dwt_tonnes": 402347,
+      "avg_speed_kn": 15.4,
+      "YearCO2emission": 1
+    }
+  }
+}
