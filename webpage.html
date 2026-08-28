@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nordic Bulk Carriers AS | Sustainable Bulk Shipping</title>
+
+  <style>
+    /* Global */
+
+    :root {
+      --navy: #09243d;
+      --navy-2: #0f3555;
+      --blue: #176b9c;
+      --blue-light: #e8f3f8;
+      --cyan: #4ea9c7;
+      --green: #2d8061;
+      --green-light: #e8f4ee;
+      --gold: #c79a45;
+      --white: #ffffff;
+      --off-white: #f5f8fa;
+      --light-grey: #e7edf1;
+      --grey: #667784;
+      --dark: #1d2a33;
+      --red: #a94a4a;
+
+      --shadow: 0 8px 30px rgba(9, 36, 61, 0.08);
+      --radius: 14px;
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--grey);
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    /* Header */
+
+    header {
+      position: relative;
+      min-height: 560px;
+      color: white;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 23, 40, 0.96) 0%,
+          rgba(7, 40, 65, 0.88) 48%,
+          rgba(7, 40, 65, 0.58) 100%
+        ),
+        linear-gradient(
+          135deg,
+          #09243d,
+          #176b9c
+        );
+
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Decorative wave */
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -90px;
+      left: -5%;
+      width: 110%;
+      height: 180px;
+      background: var(--off-white);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      padding: 90px 0 140px;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b9dce9;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      margin-bottom: 18px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #8ed0e5;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.15rem;
+      color: #dcebf1;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .button-primary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 36, 61, 0.97);
+      box-shadow: 0 3px 18px rgba(0,0,0,0.12);
+    }
+
+    .nav-inner {
+      width: min(94%, var(--max-width));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: white;
+      font-weight: bold;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      padding: 18px 0;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    nav button {
+      border: none;
+      background: transparent;
+      color: #c9d9e2;
+      padding: 20px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 3px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    nav button:hover {
+      color: white;
+      background: rgba(255,255,255,0.04);
+    }
+
+    nav button.active {
+      color: white;
+      border-bottom-color: var(--cyan);
+    }
+
+    /* Sections */
+
+    section {
+      display: none;
+      padding: 75px 0;
+      min-height: 600px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .section-header {
+      max-width: 750px;
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+      color: var(--navy);
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+    }
+
+    /* Front page */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--light-grey);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .mission-card {
+      border-top: 4px solid var(--blue);
+    }
+
+    .quote-card {
+      background: var(--navy);
+      color: white;
+    }
+
+    .quote-card p {
+      color: #d7e6ee;
+      font-size: 1.15rem;
+    }
+
+    .quote-card strong {
+      color: #8ed0e5;
+    }
+
+    /* KPI CARDS */
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 40px 0;
+    }
+
+    .kpi {
+      background: white;
+      border: 1px solid var(--light-grey);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .kpi-number {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .kpi-label {
+      font-size: 0.85rem;
+      color: var(--grey);
+    }
+
+    /* Fleet */
+
+    .fleet-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-bottom: 45px;
+    }
+
+    .ship-card {
+      background: white;
+      border: 1px solid var(--light-grey);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: 0.2s ease;
+    }
+
+    .ship-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(9, 36, 61, 0.12);
+    }
+
+    .ship-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .ship-card h3 {
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .ship-type {
+      font-size: 0.8rem;
+      color: var(--blue);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ship-card p {
+      font-size: 0.85rem;
+    }
+
+    /* TABLE */
+
+    .table-wrapper {
+      overflow-x: auto;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--light-grey);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 1050px;
+    }
+
+    th {
+      background: var(--navy);
+      color: white;
+      text-align: left;
+      padding: 15px 12px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--light-grey);
+      font-size: 0.85rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #f8fbfc;
+    }
+
+    .rating {
+      display: inline-block;
+      min-width: 30px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    .rating-a {
+      background: #e8f1e9;
+      color: #2d6848;
+    }
+
+    .rating-c {
+      background: #e8f1e9;
+      color: #2d6848;
+    }
+
+    .rating-d {
+      background: #fff3d9;
+      color: #8a631d;
+    }
+
+    .rating-e {
+      background: #f9e1e1;
+      color: #8c3c3c;
+    }
+
+    /* Strategy timeline */
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 50px auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--light-grey);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .timeline-year {
+      width: 60px;
+      height: 60px;
+      background: var(--navy);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      z-index: 2;
+      font-size: 0.85rem;
+    }
+
+    .timeline-content {
+      background: white;
+      border: 1px solid var(--light-grey);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-content h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .timeline-content ul {
+      padding-left: 20px;
+      color: var(--grey);
+    }
+
+    .target-box {
+      background: var(--green-light);
+      border-left: 4px solid var(--green);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .target-box strong {
+      color: var(--green);
+    }
+
+    /* Calculations */
+
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .formula-card {
+      background: white;
+      border: 1px solid var(--light-grey);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .formula-card h3 {
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .formula {
+      background: #102c42;
+      color: #d8edf5;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: "Courier New", monospace;
+      font-size: 0.86rem;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+
+    .assumption {
+      background: #fff8e8;
+      border-left: 4px solid var(--gold);
+      padding: 18px;
+      border-radius: 7px;
+      color: #6e5a2f;
+      margin-top: 25px;
+    }
+
+    .assumption strong {
+      color: #86671e;
+    }
+
+    /* Footer */
+
+    footer {
+      background: var(--navy);
+      color: #bcd0db;
+      padding: 35px 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1050px) {
+      .fleet-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav-inner {
+        flex-direction: column;
+      }
+
+      .logo {
+        padding-bottom: 8px;
+      }
+
+      nav button {
+        padding: 13px 9px;
+        font-size: 12px;
+      }
+
+      .intro-grid,
+      .formula-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fleet-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .fleet-cards,
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 60px 1fr;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!--Hero/Front page -->
+
+<header id="home">
+ <div class="container">
+   <div class="hero">
+
+     <div class="eyebrow">
+       Nordic Bulk Carriers AS
+     </div>
+
+     <h1>
+       Moving bulk cargo.<br>
+       <span>Reducing our impact.</span>
+     </h1>
+
+     <p>
+       A shipowning company operating dry bulk vessels in European and international
+       commodity trades, committed to efficiency, compliance, and gradual decarbonisation.
+     </p>
+
+     <div class="hero-buttons">
+       <button class="button button-primary" onclick="showPage('fleet')">
+         Explore our fleet
+       </button>
+
+       <button class="button button-secondary" onclick="showPage('strategy')">
+         Our 2050 strategy
+       </button>
+     </div>
+
+   </div>
+ </div>
+</header>
+
+<!-- Navigation -->
+
+<nav>
+ <div class="nav-inner">
+   <div class="logo">
+     NBC | NORDIC BULK CARRIERS
+   </div>
+
+   <div class="nav-links">
+     <button class="active" onclick="showPage('front')">Company</button>
+     <button onclick="showPage('fleet')">Fleet</button>
+     <button onclick="showPage('strategy')">Strategy 2050</button>
+     <button onclick="showPage('calculations')">Calculations</button>
+   </div>
+ </div>
+</nav>
+
+<main>
+
+<!-- Page 1: Company -->
+
+<section id="front" class="active">
+ <div class="container">
+
+   <div class="section-header">
+     <div class="section-label">
+       01 / Company
+     </div>
+
+     <h2>
+       Sustainable bulk shipping from the Nordic region
+     </h2>
+
+     <p>
+       Nordic Bulk Carriers AS operates dry bulk vessels covering main categories 
+       from Handymax to Very Large Ore Carriers (VLOC) across European and international routes.
+     </p>
+   </div>
+
+   <div class="intro-grid">
+     <div class="card mission-card">
+       <h3>Our approach</h3>
+       <p>
+         Our environmental strategy combines operational efficiency, fleet renewal, and the gradual 
+         introduction of lower-carbon fuels to reduce emissions per tonne-mile.
+       </p>
+       <p>
+         Aligned with International Maritime Organization (IMO) greenhouse-gas frameworks, EU ETS, 
+         and FuelEU Maritime regulations.
+       </p>
+     </div>
+
+     <div class="card quote-card">
+       <h3>Our ambition</h3>
+       <p>
+         "Transport more cargo with less environmental impact."
+       </p>
+       <p>
+         <strong>Efficiency first.</strong><br>
+         Renewable fuels next.<br>
+         Zero-emission shipping as the long-term goal.
+       </p>
+     </div>
+   </div>
+
+   <!-- KPI SUMMARY -->
+
+   <div class="kpi-grid">
+     <div class="kpi">
+       <div class="kpi-number">5</div>
+       <div class="kpi-label">Bulk carrier categories</div>
+     </div>
+
+     <div class="kpi">
+       <div class="kpi-number">40–400k</div>
+       <div class="kpi-label">Deadweight range (tonnes)</div>
+     </div>
+
+     <div class="kpi">
+       <div class="kpi-number">2050</div>
+       <div class="kpi-label">Long-term decarbonisation horizon</div>
+     </div>
+
+     <div class="kpi">
+       <div class="kpi-number">EU + Global</div>
+       <div class="kpi-label">Target trading areas</div>
+     </div>
+   </div>
+
+   <div class="card">
+     <h3>Environmental priorities</h3>
+     <div class="intro-grid">
+       <div>
+         <strong>Operational efficiency</strong>
+         <p>
+           Speed reduction, weather routing, hull maintenance, and optimized port stays.
+         </p>
+       </div>
+       <div>
+         <strong>Fleet transition</strong>
+         <p>
+           Gradual replacement of older vessels with EEXI/EEDI compliant newbuildings and alternative fuels.
+         </p>
+       </div>
+     </div>
+   </div>
+
+ </div>
+</section>
+
+<!--Page 2: Fleet -->
+
+<section id="fleet">
+ <div class="container">
+
+   <div class="section-header">
+     <div class="section-label">
+       02 / Fleet
+     </div>
+
+     <h2>
+       Fleet and environmental performance
+     </h2>
+
+     <p>
+       The sample fleet represents five major dry bulk categories based on EMSA and VesselFinder data.
+     </p>
+   </div>
+
+   <!-- SHIP CARDS -->
+
+   <div class="fleet-cards">
+
+     <div class="ship-card">
+       <div class="ship-icon">HM</div>
+       <div class="ship-type">Handymax</div>
+       <h3>NB Handymax</h3>
+       <p>
+         40,799 DWT<br>
+         10.5 kn<br>
+         IMO 9703411
+       </p>
+     </div>
+
+     <div class="ship-card">
+       <div class="ship-icon">PM</div>
+       <div class="ship-type">Panamax</div>
+       <h3>NB Panamax</h3>
+       <p>
+         52,713 DWT<br>
+         9.4 kn<br>
+         IMO 9638927
+       </p>
+     </div>
+
+     <div class="ship-card">
+       <div class="ship-icon">KM</div>
+       <div class="ship-type">Kamsarmax</div>
+       <h3>NB Kamsarmax</h3>
+       <p>
+         63,073 DWT<br>
+         11.1 kn<br>
+         IMO 9724776
+       </p>
+     </div>
+
+     <div class="ship-card">
+       <div class="ship-icon">CS</div>
+       <div class="ship-type">Capesize</div>
+       <h3>NB Capesize</h3>
+       <p>
+         220,766 DWT<br>
+         15.8 kn<br>
+         IMO 9839131
+       </p>
+     </div>
+
+     <div class="ship-card">
+       <div class="ship-icon">VL</div>
+       <div class="ship-type">VLOC</div>
+       <h3>NB VLOC</h3>
+       <p>
+         402,347 DWT<br>
+         15.4 kn<br>
+         IMO 9488918
+       </p>
+     </div>
+
+   </div>
+
+   <!-- PERFORMANCE TABLE -->
+
+   <h3 style="color: var(--navy); margin-bottom: 15px;">
+     Sample Fleet Performance Overview
+   </h3>
+
+   <div class="table-wrapper">
+     <table>
+       <thead>
+         <tr>
+           <th>Vessel</th>
+           <th>Class</th>
+           <th>DWT</th>
+           <th>Speed</th>
+           <th>CO₂ / year</th>
+           <th>CII Attained</th>
+           <th>CII Required</th>
+           <th>Rating</th>
+           <th>ETS Cost (2026 at €80/t)</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><strong>NB Handymax</strong></td>
+           <td>Handymax</td>
+           <td>40,799 t</td>
+           <td>10.5 kn</td>
+           <td>4,327.35 t</td>
+           <td>5.68</td>
+           <td>5.225</td>
+           <td><span class="rating rating-d">D</span></td>
+           <td>≈ €28,181</td>
+         </tr>
+         <tr>
+           <td><strong>NB Panamax</strong></td>
+           <td>Panamax</td>
+           <td>52,713 t</td>
+           <td>9.4 kn</td>
+           <td>2,563.65 t</td>
+           <td>4.935</td>
+           <td>4.56</td>
+           <td><span class="rating rating-d">D</span></td>
+           <td>≈ €59,944</td>
+         </tr>
+         <tr>
+           <td><strong>NB Kamsarmax</strong></td>
+           <td>Kamsarmax</td>
+           <td>63,073 t</td>
+           <td>11.1 kn</td>
+           <td>5,324.99 t</td>
+           <td>4.85</td>
+           <td>4.56</td>
+           <td><span class="rating rating-d">D</span></td>
+           <td>≈ €25,692</td>
+         </tr>
+         <tr>
+           <td><strong>NB Capesize</strong></td>
+           <td>Capesize</td>
+           <td>220,766 t</td>
+           <td>15.8 kn</td>
+           <td>89,078.71 t</td>
+           <td>4.91</td>
+           <td>3.80</td>
+           <td><span class="rating rating-e">E</span></td>
+           <td>≈ €215,818</td>
+         </tr>
+         <tr>
+           <td><strong>NB VLOC</strong></td>
+           <td>VLOC</td>
+           <td>402,347 t</td>
+           <td>15.4 kn</td>
+           <td>4,327.35 t</td>
+           <td>2.03</td>
+           <td>3.04</td>
+           <td><span class="rating rating-a">A</span></td>
+           <td>≈ €172,584</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+
+   <!-- SPECIFIC ROUTES TABLE -->
+   <h3 style="color: var(--navy); margin-top: 45px; margin-bottom: 15px;">
+     Specific Route Performance & Roundtrip Modelling
+   </h3>
+
+   <div class="table-wrapper">
+     <table>
+       <thead>
+         <tr>
+           <th>Vessel</th>
+           <th>Route (LOCODEs)</th>
+           <th>Distance (nm)</th>
+           <th>Total Time (incl. port)</th>
+           <th>Emissions (kg CO₂eq)</th>
+           <th>CII Score</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><strong>NB Handymax</strong></td>
+           <td>DKAAR ➔ GBABD ➔ NLRTM ➔ DKAAR</td>
+           <td>1,521</td>
+           <td>164.9 h</td>
+           <td>352,263.6</td>
+           <td><strong>5.68</strong></td>
+         </tr>
+         <tr>
+           <td><strong>NB Panamax</strong></td>
+           <td>SEGVX ➔ BEANR ➔ FIKTK ➔ SEGVX</td>
+           <td>2,880</td>
+           <td>326.4 h</td>
+           <td>749,203.2</td>
+           <td><strong>4.935</strong></td>
+         </tr>
+         <tr>
+           <td><strong>NB Kamsarmax</strong></td>
+           <td>NLRTM ➔ NOKRS ➔ SEGOT ➔ NLRTM</td>
+           <td>1,050</td>
+           <td>114.6 h</td>
+           <td>321,153.0</td>
+           <td><strong>4.85</strong></td>
+         </tr>
+         <tr>
+           <td><strong>NB Capesize</strong></td>
+           <td>BEANR ➔ SEGVX ➔ SEGOT ➔ BEANR</td>
+           <td>2,489</td>
+           <td>177.5 h</td>
+           <td>2,697,727.5</td>
+           <td><strong>4.91</strong></td>
+         </tr>
+         <tr>
+           <td><strong>NB VLOC</strong></td>
+           <td>BEANR ➔ FIKTK ➔ SEGOT ➔ BEANR</td>
+           <td>2,647</td>
+           <td>191.9 h</td>
+           <td>2,157,305.0</td>
+           <td><strong>2.03</strong></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+
+   <div class="assumption">
+     <strong>Route modelling note:</strong> 
+     Distances sourced from provided `distances.json` and `ports.geojson` files. Assumes 10-hour stops at each port.
+   </div>
+
+ </div>
+</section>
+
+<!-- Page 3: Strategy -->
+
+<section id="strategy">
+ <div class="container">
+
+   <div class="section-header">
+     <div class="section-label">
+       03 / Strategy
+     </div>
+
+     <h2>
+       Our environmental strategy towards 2050
+     </h2>
+
+     <p>
+       Transition strategy following a structured framework: improve current operations, 
+       transition fleet standards, and deploy zero-emission options.
+     </p>
+   </div>
+
+   <div class="timeline">
+
+     <!-- 2030 -->
+     <div class="timeline-item">
+       <div class="timeline-year">2030</div>
+       <div class="timeline-content">
+         <h3>Efficiency and compliance</h3>
+         <p>
+           Short-term goal focusing on operational measures to reduce emissions and avoid CII D/E ratings.
+         </p>
+         <ul>
+           <li>Optimise vessel speed and voyage planning.</li>
+           <li>Implement weather routing and just-in-time arrival.</li>
+           <li>Maintain clean hulls and propellers.</li>
+           <li>Use shore power at EU ports and trial sustainable biofuel blends.</li>
+         </ul>
+         <div class="target-box">
+           <strong>2030 focus:</strong> Operational emission cuts and compliance with stringent IMO/EU limits.
+         </div>
+       </div>
+     </div>
+
+     <!-- 2040 -->
+     <div class="timeline-item">
+       <div class="timeline-year">2040</div>
+       <div class="timeline-content">
+         <h3>Fleet renewal and alternative fuels</h3>
+         <p>
+           Structural transition shifting investments toward new vessel designs and low-carbon propulsion.
+         </p>
+         <ul>
+           <li>Retire least efficient units failing EEXI thresholds.</li>
+           <li>Invest in newbuildings capable of utilizing green methanol, ammonia, or advanced biofuels.</li>
+           <li>Scale up shore power application and long-term clean fuel agreements.</li>
+         </ul>
+         <div class="target-box">
+           <strong>2040 focus:</strong> Substantially renewed fleet with drastically reduced lifecycle GHG intensity.
+         </div>
+       </div>
+     </div>
+
+     <!-- 2050 -->
+     <div class="timeline-item">
+       <div class="timeline-year">2050</div>
+       <div class="timeline-content">
+         <h3>Near-zero emission shipping</h3>
+         <p>
+           Long-term alignment with international maritime net-zero pathways.
+         </p>
+         <ul>
+           <li>Operate entirely on scalable zero- or near-zero-GHG fuels.</li>
+           <li>Maintain top-tier CII performance (A/B ratings).</li>
+           <li>Minimize exposure to carbon pricing and penalty mechanisms.</li>
+         </ul>
+         <div class="target-box">
+           <strong>2050 focus:</strong> Fully net-zero compatible transport system.
+         </div>
+       </div>
+     </div>
+
+   </div>
+
+ </div>
+</section>
+
+<!--Page 4: Calculations -->
+
+<section id="calculations">
+ <div class="container">
+
+   <div class="section-header">
+     <div class="section-label">
+       04 / Methodology
+     </div>
+
+     <h2>
+       Calculation documentation & Regulatory frameworks
+     </h2>
+
+     <p>
+       Documentation of formulas and compliance models implemented for CII, EEXI, EU ETS, and FuelEU Maritime.
+     </p>
+   </div>
+
+   <div class="formula-grid">
+
+     <div class="formula-card">
+       <h3>01 — Operational CII & Ratings</h3>
+       <p>Calculated via annual emissions relative to transport work capacity.</p>
+       <div class="formula">
+CII_attained = CO₂_annual(g) / (DWT × D_annual)
+       </div>
+       <p>Compared against required targets with a 5% reduction factor ($z=5\%$).</p>
+     </div>
+
+     <div class="formula-card">
+       <h3>02 — EEXI Index</h3>
+       <p>Design energy efficiency indexing based on reference speeds and installed power on HFO.</p>
+       <div class="formula">
+EEXI = CO₂ / (Capacity × V_ref)
+       </div>
+     </div>
+
+     <div class="formula-card">
+       <h3>03 — EU ETS Compliance</h3>
+       <p>Allowance surrenders scaled for 100% phase-in by 2026 at an assumed carbon price of €80/t.</p>
+       <div class="formula">
+EUAs_required = CO₂_covered × Phase_percentage
+Carbon_cost = EUAs_required × EUA_price
+       </div>
+     </div>
+
+     <div class="formula-card">
+       <h3>04 — FuelEU Maritime</h3>
+       <p>Compares lifecycle GHG energy intensity against baseline thresholds, generating deficits for HFO-reliant ships.</p>
+       <div class="formula">
+GHG intensity = Total lifecycle GHG / Energy used
+       </div>
+     </div>
+
+   </div>
+
+   <div class="assumption">
+     <strong>Project Note:</strong> 
+     All calculations, routing selections, and methodologies were independently structured and verified by the student group.
+   </div>
+
+ </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+
+<footer>
+ <div class="container">
+   <strong>Nordic Bulk Carriers AS</strong><br>
+   Sustainable bulk shipping in Northern Europe<br><br>
+   Academic project — Fleet Development & Environmental Performance
+ </div>
+</footer>
+
+<!-- Javascript -->
+
+<script>
+ function showPage(id) {
+   document.querySelectorAll("section").forEach(section => {
+     section.classList.remove("active");
+   });
+   document.getElementById(id).classList.add("active");
+
+   document.querySelectorAll("nav button").forEach(button => {
+     button.classList.remove("active");
+   });
+
+   const buttons = document.querySelectorAll("nav button");
+   if (id === "front") buttons[0].classList.add("active");
+   if (id === "fleet") buttons[1].classList.add("active");
+   if (id === "strategy") buttons[2].classList.add("active");
+   if (id === "calculations") buttons[3].classList.add("active");
+
+   window.scrollTo({ top: 0, behavior: "smooth" });
+ }
+</script>
+
+</body>
+</html>
